@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Encrypt Everywhere</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        Encrypt Everywhere
+      </a>
+    </div>
+  </nav>
+  <section class="vh-100">
+    <div class="container-fluid h-100">
+      <div class="card start-50 top-50 mh-100 w-25 translate-middle">
+        <div class="card-body">
+          <h5 class="card-title">Download File:</h5>
+          <form>
+            <div class="mb-3">
+              <label for="file_id" class="form-label">File ID</label>
+              <input type="text" class="form-control" id="file_id">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" id="download">Download File</button>
+            <a href="file_upload.html" class="card-link">Upload File</a>
+          </form>
+          <label id="file_id"></label>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    var access_token = localStorage.getItem("access_token")
+    if (access_token == null){
+        window.location = "login.html"
+    }
+  </script>
+  <script src="./main.js"></script>
+</body>
+
+</html>

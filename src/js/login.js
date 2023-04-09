@@ -28,7 +28,7 @@ async function login(){
       alert("Invalid credentials")
    } else {
       data = await resp.json()
-      sessionStorage.setItem("accessToken",data["access_token"])
+      localStorage.setItem("access_token",data["access_token"])
       var encrypted_master_key_string = data["encrypted_master_password"]
       var iv = CryptoJS.enc.Hex.parse(encrypted_master_key_string.slice(0,32))
       var encrypted_master_key = CryptoJS.enc.Hex.parse(encrypted_master_key_string.slice(32,encrypted_master_key_string.length))
@@ -36,6 +36,7 @@ async function login(){
       var master_key = CryptoJS.AES.decrypt(cipherparams,master_enc_key,{iv:iv,mode:CryptoJS.mode.CBC,padding: CryptoJS.pad.Pkcs7})
       localStorage.setItem("master_key",master_key.toString())
       alert("Logged In")
+      window.location = "file_upload.html"
    }
 }
 
